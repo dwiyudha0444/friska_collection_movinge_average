@@ -66,22 +66,25 @@
                                         <p class="text-center small">Enter your personal details to create account</p>
                                     </div>
 
-
-                                    <form class="row g-3 needs-validation" novalidate method="POST"
-                                        action="/register">
+                                    <form class="row g-3 needs-validation" novalidate
+                                        action="{{ route('register-proses') }}" method="post">
                                         @csrf
 
                                         <div class="col-12">
                                             <label for="yourName" class="form-label">Your Name</label>
-                                            <input type="text" name="name" class="form-control" id="yourName"
-                                                required>
+                                            <input type="text" name="nama" class="form-control"
+                                                value="{{ old('nama') }}">
                                             <div class="invalid-feedback">Please, enter your name!</div>
                                         </div>
 
+                                        @error('name')
+                                            <small>{{ $message }}</small>
+                                        @enderror
+
                                         <div class="col-12">
                                             <label for="yourEmail" class="form-label">Your Email</label>
-                                            <input type="email" name="email" class="form-control" id="yourEmail"
-                                                required>
+                                            <input type="email" name="email" class="form-control"
+                                                value="{{ old('email') }}">
                                             <div class="invalid-feedback">Please enter a valid Email adddress!</div>
                                         </div>
 
@@ -94,14 +97,22 @@
                       </div>
                     </div> --}}
 
+                                        @error('email')
+                                            <small>{{ $message }}</small>
+                                        @enderror
+
                                         <div class="col-12">
                                             <label for="yourPassword" class="form-label">Password</label>
                                             <input type="password" name="password" class="form-control"
-                                                id="yourPassword" required>
+                                                placeholder="Password">
                                             <div class="invalid-feedback">Please enter your password!</div>
                                         </div>
 
-                                        <div class="col-12">
+                                        @error('password')
+                                            <small>{{ $message }}</small>
+                                        @enderror
+
+                                        {{-- <div class="col-12">
                                             <div class="form-check">
                                                 <input class="form-check-input" name="terms" type="checkbox"
                                                     value="" id="acceptTerms" required>
@@ -109,7 +120,7 @@
                                                     <a href="#">terms and conditions</a></label>
                                                 <div class="invalid-feedback">You must agree before submitting.</div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-12">
                                             <button class="btn btn-primary w-100" type="submit">Create Account</button>
                                         </div>

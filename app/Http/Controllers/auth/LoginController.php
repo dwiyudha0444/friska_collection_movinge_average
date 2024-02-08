@@ -4,6 +4,8 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
@@ -12,23 +14,33 @@ class LoginController extends Controller
         return view('auth.login.index');
     }
 
-    public function login(Request $request)
+    public function login()
     {
-        $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
-            // Jika berhasil login
-            return redirect()->intended('/');
-        }
-
-        // Jika gagal, kembali ke form login dengan pesan error
-        return redirect()->back()->withErrors(['email' => 'Email atau password salah']);
+        return view('auth.login.index');
     }
 
-    // Logout
+    public function login_proses(Request $request)
+    {
+        $request->validate([
+            'email'     => 'required',
+            'password'  => 'required',
+        ]);
+
+        $data = [
+            'email'     => $request->email,
+            'password'  => $request->password
+        ];
+
+        if (Auth::attempt($data)) {
+            return redirect()->route('dashboard');
+        } else {
+            return redirect()->route('login')->with('failed', 'Email atau Password Salah');
+        }
+    }
+
     public function logout()
     {
         Auth::logout();
-        return redirect('/login');
+        return redirect()->route('login')->with('success', 'Kamu berhasil logout');
     }
 }

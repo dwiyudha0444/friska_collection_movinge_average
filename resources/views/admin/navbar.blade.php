@@ -15,19 +15,18 @@
         <li class="nav-item dropdown">
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             {{-- <img src="{{!-- url('assets/profile/img') }}/{{ Auth::user()->foto }}" alt="Profile" class="rounded-circle"> --}}
-            {{-- <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span> --}}
+            <span class="d-none d-md-block dropdown-toggle ps-2">{{ Auth::user()->name }}</span>
           </a><!-- End Profile Iamge Icon -->
 
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              {{-- <a class="dropdown-item" href="{{ route('logout') }}"
-                 onclick="event.preventDefault();
-                               document.getElementById('logout-form').submit();">
-                  {{ __('Logout') }}
-              </a>
+            <a href="{{ route('logout') }}" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              
+                logout
+              
+          </a>
 
-              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                  @csrf
-              </form> --}}
+              
           </div>
       </li>
 

@@ -69,7 +69,7 @@
 
 
                                     <form class="row g-3 needs-validation" novalidate method="POST"
-                                        action="{{ route('login') }}">
+                                        action="{{ route('login-proses') }}">
                                         @csrf
 
                                         <div class="col-12">

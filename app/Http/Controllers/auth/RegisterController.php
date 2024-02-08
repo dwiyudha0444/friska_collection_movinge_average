@@ -4,6 +4,9 @@ namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class RegisterController extends Controller
 {
@@ -12,22 +15,34 @@ class RegisterController extends Controller
         return view('auth.register.index');
     }
 
-    // Memproses pendaftaran
-    public function register(Request $request)
+    public function register()
+    {
+        return view('auth.register.index');
+    }
+
+    public function register_proses(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|unique:users|max:255',
-            'password' => 'required|string|min:8|confirmed',
-            ]);
-    
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'nama'  => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6'
         ]);
-    
-        // Redirect ke halaman login setelah pendaftaran berhasil
-        return redirect()->route('login')->with('success', 'Pendaftaran berhasil! Silakan login.');
+
+        $data['name']       = $request->nama;
+        $data['email']      = $request->email;
+        $data['password']   = Hash::make($request->password);
+
+        User::create($data);
+
+        $login = [
+            'email'     => $request->email,
+            'password'  => $request->password
+        ];
+
+        if (Auth::attempt($login)) {
+            return redirect()->route('dashboard');
+        } else {
+            return redirect()->route('login')->with('failed', 'Email atau Password Salah');
+        }
     }
 }
