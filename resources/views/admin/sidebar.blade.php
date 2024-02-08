@@ -12,19 +12,19 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Pemakaian</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>Stok Barang</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
 
           <li>
-            <a href="{{ url('obat-keluar') }}">
-              <i class="bi bi-circle"></i><span>Obat Keluar</span>
+            <a href="{{ url('stok-fashion') }}">
+              <i class="bi bi-circle"></i><span>Fashion</span>
             </a>
           </li>
 
           <li>
-            <a href="{{ url('pemakaian') }}">
-              <i class="bi bi-circle"></i><span>Pemakaian</span>
+            <a href="{{ url('stok-prabotan') }}">
+              <i class="bi bi-circle"></i><span>Prabotan</span>
             </a>
           </li>
  
@@ -32,7 +32,7 @@
         </ul>
       </li><!-- End Components Nav -->
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Persediaan</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -51,9 +51,9 @@
           </li>
  
         </ul>
-      </li><!-- End Tables Nav -->
+      </li><!-- End Tables Nav --> --}}
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
           <i class="bi bi-layout-text-window-reverse"></i><span>Permintaaan</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
@@ -72,7 +72,7 @@
           </li>
  
         </ul>
-      </li><!-- End Charts Nav -->
+      </li><!-- End Charts Nav --> --}}
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
@@ -89,7 +89,7 @@
       </li><!-- End Icons Nav -->
 
 
-      <li class="nav-heading">Nama & Kategori Obat</li>
+      {{-- <li class="nav-heading">Nama & Kategori Obat</li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('obat') }}">
@@ -136,16 +136,16 @@
           </li>
           
         </ul>
-      </li><!-- End Forms Nav -->
+      </li><!-- End Forms Nav --> --}}
 
-      <li class="nav-heading">Pages</li>
+      {{-- <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="{{ url('profile') }}">
           <i class="bi bi-person"></i>
           <span>Profile</span>
         </a>
-      </li><!-- End Profile Page Nav -->
+      </li><!-- End Profile Page Nav --> --}}
 
 
     </ul>
