@@ -10,8 +10,15 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::orderBy('id','DESC')->get();
-        return view('admin.user.index',compact('users'));
+        // Mendapatkan ID pengguna yang sedang login
+        $loggedInUserId = auth()->user()->id;
+
+        // Mendapatkan daftar pengguna yang bukan pengguna yang sedang login
+        $users = User::where('id', '!=', $loggedInUserId)
+                    ->orderBy('id', 'DESC')
+                    ->get();
+
+        return view('admin.user.index', compact('users'));
     }
-    
+
 }

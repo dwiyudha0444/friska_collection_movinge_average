@@ -1,7 +1,9 @@
 @extends('admin.index')
 @section('content')
     <main id="main" class="main">
+        
         <div class="pagetitle">
+            
             <h1>User</h1>
             <nav>
                 <ol class="breadcrumb">
@@ -14,6 +16,7 @@
         <!-- Recent Sales -->
         <div class="col-12">
             <div class="card recent-sales overflow-auto">
+                
 
                 @if ($message = Session::get('success'))
                     <div class="alert alert-success">
