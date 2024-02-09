@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\DashboardController;
 
+//home
+use App\Http\Controllers\home\HomeController;
+
 //auth
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\auth\RegisterController;
@@ -33,6 +36,9 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/register', [RegisterController::class, 'register'])->name('register');
 Route::post('/register-proses', [RegisterController::class, 'register_proses'])->name('register-proses');
 
+//home
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 //admin
 

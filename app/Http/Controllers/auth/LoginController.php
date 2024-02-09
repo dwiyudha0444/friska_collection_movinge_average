@@ -31,8 +31,21 @@ class LoginController extends Controller
             'password'  => $request->password
         ];
 
+        // if (Auth::attempt($data)) {
+        //     return redirect()->route('dashboard');
+        // } else {
+        //     return redirect()->route('login')->with('failed', 'Email atau Password Salah');
+        // }
+        
         if (Auth::attempt($data)) {
-            return redirect()->route('dashboard');
+            // Periksa peran pengguna dan arahkan ke rute yang sesuai
+            if (Auth::user()->role == 'admin') {
+                return redirect()->route('dashboard');
+            } elseif (Auth::user()->role == 'kasir') {
+                return redirect()->route('home');
+            } elseif (Auth::user()->role == 'pemilik') {
+                return redirect()->route('dashboard');
+            }
         } else {
             return redirect()->route('login')->with('failed', 'Email atau Password Salah');
         }
