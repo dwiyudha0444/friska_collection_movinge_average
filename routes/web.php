@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\UserController;
 
 //home
 use App\Http\Controllers\home\HomeController;
@@ -52,3 +53,5 @@ Route::get('/stok-fashion', [ProductController::class, 'index_fashion'])->name('
 //stok produks - prabotan
 Route::get('/stok-prabotan', [ProductController::class, 'index_prabotan'])->name('stok-prabotan');
 
+//user
+Route::get('/user', [UserController::class, 'index'])->name('user');
