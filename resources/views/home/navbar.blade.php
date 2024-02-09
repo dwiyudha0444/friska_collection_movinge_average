@@ -49,7 +49,12 @@
                                                 <li><a href="prabotan">Prabotan</a></li>
                                             </ul>
                                         </li>
-                                        {{-- <li><a href="contact.html">Contact</a></li> --}}
+                                        <li class="dropdown"><a href="index.html">{{ Auth::user()->name }}</a>
+                                            <ul>
+                                                <li><a href="{{ route('logout') }}">logout</a></li>
+                                            </ul>
+                                        </li>
+                                        
                                     </ul>
                                 </div>
                             </nav>
