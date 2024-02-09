@@ -15,11 +15,6 @@ class RegisterController extends Controller
         return view('auth.register.index');
     }
 
-    public function register()
-    {
-        return view('auth.register.index');
-    }
-
     public function register_proses(Request $request)
     {
         $request->validate([

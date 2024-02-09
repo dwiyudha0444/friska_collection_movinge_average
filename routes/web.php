@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 //admin
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\DashboardController;
+use App\Http\Controllers\admin\ProductController;
 
 //home
 use App\Http\Controllers\home\HomeController;
@@ -33,7 +34,7 @@ Route::get('/', [LoginController::class, 'index'])->name('login');
 Route::post('/login-proses', [LoginController::class, 'login_proses'])->name('login-proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('/register', [RegisterController::class, 'register'])->name('register');
+Route::get('/register', [RegisterController::class, 'index'])->name('register');
 Route::post('/register-proses', [RegisterController::class, 'register_proses'])->name('register-proses');
 
 //home
@@ -46,6 +47,7 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::resource('/administrator',AdminController::class);
 
 //stok produks
-Route::resource('/stok-prabotan',DashboardController::class);
-Route::resource('/stok-fashion',DashboardController::class);
+Route::get('/stok-fashion', [ProductController::class, 'index'])->name('stok-fashion');
+
+Route::get('/stok-prabotan', [ProductController::class, 'index'])->name('stok-prabotan');
 
