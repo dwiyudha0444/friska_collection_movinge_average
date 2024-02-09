@@ -32,31 +32,31 @@
                 <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
             </div>
             <div class="sortable-masonry">
-                <div class="filters">
-                    <ul class="filter-tabs filter-btns centred clearfix">
-                        <li class="active filter" data-role="button" data-filter=".best_seller">Best Seller</li>
-                        <li class="filter" data-role="button" data-filter=".new_arraivals">New Arraivals</li>
-                        <li class="filter" data-role="button" data-filter=".top_rate">Top Rate</li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals">
-                    <div class="shop-block-one">
-                        <div class="inner-box">
-                            <figure class="image-box">
-                                <img src="home/assets/images/resource/shop/shop-8.jpg" alt="">
-                                <ul class="info-list clearfix">
-                                    <li><a href="product-details.html"><i class="flaticon-cart"></i></a></li>
-                                </ul>
-                            </figure>
-                            <div class="lower-content">
-                                <a href="product-details.html">Must-Have Easy Tank</a>
-                                <span class="price">$20.30</span>
+                
+                <div class="row">
+                    @foreach ($fashion as $fash)
+                    <div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals">
+                        <div class="shop-block-one">
+                            <div class="inner-box">
+                                <figure class="image-box">
+                                    <img src="home/assets/images/resource/shop/shop-8.jpg" alt="">
+                                    <ul class="info-list clearfix">
+                                        <li><a href="product-details.html"><i class="flaticon-cart"></i></a></li>
+                                    </ul>
+                                </figure>
+                                <div class="lower-content">
+                                    <a href="product-details.html">{{ $fash->nama }}</a>
+                                    <span class="price">{{ $fash->harga }}</span>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
+                
             </div>
         </div>
+
         <div class="more-btn centred"><a href="shop.html" class="theme-btn-one">View All Products<i
                     class="flaticon-right-1"></i></a></div>
         </div>
