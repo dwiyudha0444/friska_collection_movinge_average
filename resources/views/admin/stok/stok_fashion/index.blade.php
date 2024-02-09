@@ -49,23 +49,23 @@
                             @php
                                 $no = 1;
                             @endphp
-                            @foreach ($product as $pro)
+                            @foreach ($fashion as $fash)
                                 <tr>
                                     <th scope="row"><a href="#">{{ $no++ }}</a></th>
                                     
-                                    <td>{{ $pro->nama }}</td>
-                                    <td>{{ $pro->kategori }}</td>
-                                    <td>{{ $pro->harga }}</td>
-                                    <td>{{ $pro->image }}</td>
+                                    <td>{{ $fash->nama }}</td>
+                                    <td>{{ $fash->kategori }}</td>
+                                    <td>{{ $fash->harga }}</td>
+                                    <td>{{ $fash->image }}</td>
                                     
                                     {{-- <td>
 
-                                        <form method="POST" action="{{ route('obat.destroy', $pro->id) }}">
+                                        <form method="POST" action="{{ route('obat.destroy', $fash->id) }}">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="custom-btn custom-btn-merah">Hapus</button>
 
-                                            <a class="custom-btn" href="{{ url('obat-edit', $pro->id) }}">Edit</a>
+                                            <a class="custom-btn" href="{{ url('obat-edit', $fash->id) }}">Edit</a>
                                         </form>
                                     </td> --}}
                                 </tr>

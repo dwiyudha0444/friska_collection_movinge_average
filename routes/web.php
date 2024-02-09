@@ -46,8 +46,9 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::resource('/administrator',AdminController::class);
 
-//stok produks
-Route::get('/stok-fashion', [ProductController::class, 'index'])->name('stok-fashion');
+//stok produks - fashion
+Route::get('/stok-fashion', [ProductController::class, 'index_fashion'])->name('stok-fashion');
 
-Route::get('/stok-prabotan', [ProductController::class, 'index'])->name('stok-prabotan');
+//stok produks - prabotan
+Route::get('/stok-prabotan', [ProductController::class, 'index_prabotan'])->name('stok-prabotan');
 
