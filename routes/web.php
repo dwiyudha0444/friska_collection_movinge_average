@@ -40,7 +40,7 @@ Route::post('/register-proses', [RegisterController::class, 'register_proses'])-
 
 //home
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/landingpage', [HomeController::class, 'index'])->name('landingpage');
 
 //admin
 
