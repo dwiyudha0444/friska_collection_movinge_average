@@ -65,20 +65,24 @@
                     </div>
                 </div>
             </div>
-            {{-- <div class="othre-content clearfix">
 
-                <div class="update-btn pull-right">
-                    <button type="submit" class="theme-btn-one">Update Cart<i class="flaticon-right-1"></i></button>
-                </div>
-            </div> --}}
+            <?php
+            // Hitung total harga order dari keranjang belanja
+            $orderTotal = 0;
+            foreach ($cart as $ca) {
+                $orderTotal += $ca->harga * $ca->qty;
+            }
+            ?>
+
+            <!-- Sekarang, tampilkan total harga order ke dalam halaman HTML -->
             <div class="cart-total">
                 <div class="row">
                     <div class="col-xl-5 col-lg-12 col-md-12 offset-xl-7 cart-column">
                         <div class="total-cart-box clearfix">
                             <h4>Cart Totals</h4>
                             <ul class="list clearfix">
-                                <li>Subtotal:<span>$150</span></li>
-                                <li>Order Total:<span>$150</span></li>
+                                <li>Order Total:<span>{{ $orderTotal }}</span></li>
+                                <!-- Ini adalah order total yang diambil dari total harga order keseluruhan -->
                             </ul>
                             <a href="cart.html" class="theme-btn-two">Proceed to Checkout<i
                                     class="flaticon-right-1"></i></a>
@@ -86,6 +90,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
     <!-- cart section end -->
