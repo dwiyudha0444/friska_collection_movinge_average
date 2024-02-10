@@ -47,6 +47,7 @@ Route::get('/landingpage', [HomeController::class, 'index'])->name('landingpage'
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');
 Route::post('/hapus-item', [CartController::class, 'hapusItem'])->name('hapus.item');
+Route::post('/update-cart', [CartController::class, 'update'])->name('update-cart');
 
 //admin
 

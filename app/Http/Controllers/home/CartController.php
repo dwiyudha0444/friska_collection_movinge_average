@@ -45,5 +45,28 @@ class CartController extends Controller
             return redirect()->back()->with('error', 'Item tidak ditemukan dalam keranjang.');
         }
     }
+
+    public function update(Request $request) {
+        // Dapatkan array ID keranjang dan kuantitas
+        $cartIds = $request->cart_id;
+        $quantities = $request->quantity;
+    
+        // Loop melalui setiap item untuk memperbarui kuantitasnya
+        foreach ($cartIds as $index => $cartId) {
+            // Temukan item berdasarkan ID-nya
+            $item = Cart::find($cartId);
+    
+            // Perbarui kuantitas jika item ada
+            if ($item) {
+                $item->qty = $quantities[$index];
+                $item->save();
+            }
+        }
+    
+        // Redirect kembali dengan pesan sukses
+        return redirect()->back()->with('success', 'Keranjang diperbarui dengan sukses.');
+    }
+    
+    
     
 }
