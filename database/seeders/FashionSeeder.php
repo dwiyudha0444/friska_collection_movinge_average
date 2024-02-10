@@ -18,19 +18,22 @@ class FashionSeeder extends Seeder
                 'nama' => 'Baju 1',
                 'kategori' => 'baju',
                 'image' => 'default.jpg',
-                'harga' => 30000
+                'harga' => 30000,
+                'stok' => 90
             ],
             [
                 'nama' => 'Baju 2',
                 'kategori' => 'baju',
                 'image' => 'default.jpg',
-                'harga' => 20000
+                'harga' => 20000,
+                'stok' => 70
             ],
             [
                 'nama' => 'Baju 3',
                 'kategori' => 'baju',
                 'image' => 'default.jpg',
-                'harga' => 25000
+                'harga' => 25000,
+                'stok' => 45
             ],
         ];
         foreach ($products as $item){

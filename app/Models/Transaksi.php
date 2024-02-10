@@ -9,6 +9,7 @@ class Transaksi extends Model
 {
     protected $table = 'transaksis';
     protected $fillable = [
+        'id_fashion',
         'nama', 
         'kategori', 
         'image', 

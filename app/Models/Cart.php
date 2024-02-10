@@ -9,6 +9,7 @@ class Cart extends Model
 {
     protected $table = 'carts';
     protected $fillable = [
+        'id_fashion',
         'nama', 
         'kategori', 
         'image', 

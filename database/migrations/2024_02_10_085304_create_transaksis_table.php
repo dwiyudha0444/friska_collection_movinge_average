@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_fashion')->unsigned()->nullable();
             $table->string('nama');
-            $table->string('kategori');;
+            $table->string('kategori');
             $table->string('image')->default('default.jpg');
             $table->integer('harga');
             $table->integer('qty');

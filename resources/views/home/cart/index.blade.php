@@ -1,6 +1,11 @@
 @extends('home.index')
 @section('content')
     <!-- cart section -->
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
+        </div>
+    @endif
     <section class="cart-section cart-page">
         <div class="auto-container">
             <div class="row clearfix">
@@ -87,15 +92,23 @@
                             <form action="{{ route('checkout') }}" method="post">
                                 @csrf
                                 @foreach ($cart as $ca)
-                                <input type="hidden" name="items[{{ $loop->index }}][nama]" value="{{ $ca->nama }}">
-                                <input type="hidden" name="items[{{ $loop->index }}][kategori]" value="{{ $ca->kategori }}">
-                                <input type="hidden" name="items[{{ $loop->index }}][image]" value="{{ $ca->image }}">
-                                <input type="hidden" name="items[{{ $loop->index }}][harga]" value="{{ $ca->harga }}">
-                                <input type="hidden" name="items[{{ $loop->index }}][qty]" value="{{ $ca->qty }}">
+                                <input type="hidden" name="items[{{ $loop->index }}][id_fashion]"
+                                        value="{{ $ca->id_fashion }}">
+                                    <input type="hidden" name="items[{{ $loop->index }}][nama]"
+                                        value="{{ $ca->nama }}">
+                                    <input type="hidden" name="items[{{ $loop->index }}][kategori]"
+                                        value="{{ $ca->kategori }}">
+                                    <input type="hidden" name="items[{{ $loop->index }}][image]"
+                                        value="{{ $ca->image }}">
+                                    <input type="hidden" name="items[{{ $loop->index }}][harga]"
+                                        value="{{ $ca->harga }}">
+                                    <input type="hidden" name="items[{{ $loop->index }}][qty]"
+                                        value="{{ $ca->qty }}">
                                 @endforeach
-                                <button type="submit" class="theme-btn-two">Checkout<i class="flaticon-right-1"></i></button>
+                                <button type="submit" class="theme-btn-two">Checkout<i
+                                        class="flaticon-right-1"></i></button>
                             </form>
-                            
+
                         </div>
                     </div>
                 </div>

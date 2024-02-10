@@ -1,29 +1,10 @@
 @extends('home.index')
 @section('content')
-
-
-    <!-- topcategory-section -->
-    <section class="topcategory-section centred">
-        <div class="auto-container">
-            <div class="sec-title">
-                <h2>Top Category</h2>
-                <p>Follow the most popular trends and get exclusive items from castro shop</p>
-                <span class="separator" style="background-image: url(assets/images/icons/separator-1.png);"></span>
-            </div>
-            <div class="row clearfix">
-                <div class="col-lg-3 col-md-6 col-sm-12 category-block">
-                    <div class="category-block-one wow fadeInUp animated animated" data-wow-delay="00ms"
-                        data-wow-duration="1500ms">
-                        <figure class="image-box"><img src="home/assets/images/resource/category-1.png" alt="">
-                        </figure>
-                        <h5><a href="index.html">Women Collections</a></h5>
-                    </div>
-                </div>
-            </div>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            <p>{{ $message }}</p>
         </div>
-    </section>
-    <!-- topcategory-section end -->
-
+    @endif
 
     <!-- shop-section -->
     <section class="shop-section">
@@ -47,6 +28,7 @@
                                             <li>
                                                 <form action="/add-to-cart" method="post">
                                                     @csrf
+                                                    <input type="hidden" name="id_fashion" value="{{ $fash->id }}">
                                                     <input type="hidden" name="nama" value="{{ $fash->nama }}">
                                                     <input type="hidden" name="kategori" value="{{ $fash->kategori }}">
                                                     <input type="hidden" name="harga" value="{{ $fash->harga }}">

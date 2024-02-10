@@ -19,13 +19,14 @@ class CartController extends Controller
         // Simpan data ke dalam database cart
         Cart::create([
             'id' => $request->id,
+            'id_fashion' => $request->id_fashion,
             'nama' => $request->nama,
             'kategori' => $request->kategori,
             'harga' => $request->harga,
         ]);
         
         // Response sukses
-        return redirect('/landingpage')->with('success', 'Data Berhasil Diubah');
+        return redirect('/landingpage')->with('success', 'Berhasil Dimasukan Ke Keranjang');
     }
     
     public function hapusItem(Request $request) {
