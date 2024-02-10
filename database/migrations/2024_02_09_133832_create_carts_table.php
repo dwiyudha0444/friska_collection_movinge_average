@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('kategori');;
-            $table->string('image');
+            $table->string('image')->default('default.jpg');
             $table->integer('harga');
             $table->timestamps();
         });

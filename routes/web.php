@@ -10,6 +10,7 @@ use App\Http\Controllers\admin\UserController;
 
 //home
 use App\Http\Controllers\home\HomeController;
+use App\Http\Controllers\home\CartController;
 
 //auth
 use App\Http\Controllers\auth\LoginController;
@@ -41,6 +42,7 @@ Route::post('/register-proses', [RegisterController::class, 'register_proses'])-
 //home
 
 Route::get('/landingpage', [HomeController::class, 'index'])->name('landingpage');
+Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');
 
 //admin
 
