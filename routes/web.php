@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\TransaksiController;
 
 //home
 use App\Http\Controllers\home\HomeController;
@@ -46,8 +47,11 @@ Route::get('/landingpage', [HomeController::class, 'index'])->name('landingpage'
 //cart
 Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');
-Route::post('/hapus-item', [CartController::class, 'hapusItem'])->name('hapus.item');
+Route::post('/hapus-item', [CartController::class, 'hapusItem'])->name('hapus-item');
 Route::post('/update-cart', [CartController::class, 'update'])->name('update-cart');
+
+//transaksi
+Route::post('/checkout', [TransaksiController::class, 'checkout'])->name('checkout');
 
 //admin
 

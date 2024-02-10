@@ -15,7 +15,6 @@ class CartController extends Controller
     }
 
     public function addToCart(Request $request) {
-        // Lakukan validasi request di sini jika diperlukan
     
         // Simpan data ke dalam database cart
         Cart::create([
@@ -23,12 +22,10 @@ class CartController extends Controller
             'nama' => $request->nama,
             'kategori' => $request->kategori,
             'harga' => $request->harga,
-            // Tambahkan kolom lain yang diperlukan
         ]);
         
-    
         // Response sukses
-        return response()->json(['success' => true]);
+        return redirect('/landingpage')->with('success', 'Data Berhasil Diubah');
     }
     
     public function hapusItem(Request $request) {
@@ -38,10 +35,10 @@ class CartController extends Controller
         // Hapus item jika ditemukan
         if ($item) {
             $item->delete();
-            // Redirect kembali ke halaman keranjang atau berikan respons sesuai kebutuhan
+            
             return redirect()->back()->with('success', 'Item berhasil dihapus dari keranjang.');
         } else {
-            // Item tidak ditemukan, berikan respons atau tindakan sesuai kebutuhan
+            
             return redirect()->back()->with('error', 'Item tidak ditemukan dalam keranjang.');
         }
     }

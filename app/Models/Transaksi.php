@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Cart extends Model
+class Transaksi extends Model
 {
-    protected $table = 'carts';
+    protected $table = 'transaksis';
     protected $fillable = [
         'nama', 
         'kategori', 
         'image', 
         'harga',
-        'qty'
+        'qty',
     ];
 }

@@ -26,7 +26,7 @@
                                             <td colspan="4" class="prod-column">
                                                 <div class="column-box">
                                                     <div class="remove-btn">
-                                                        <form action="{{ route('hapus.item') }}" method="post">
+                                                        <form action="{{ route('hapus-item') }}" method="post">
                                                             @csrf
                                                             <input type="hidden" name="cart_id"
                                                                 value="{{ $ca->id }}">
@@ -82,14 +82,25 @@
                             <h4>Cart Totals</h4>
                             <ul class="list clearfix">
                                 <li>Order Total:<span>{{ $orderTotal }}</span></li>
-                                <!-- Ini adalah order total yang diambil dari total harga order keseluruhan -->
                             </ul>
-                            <a href="cart.html" class="theme-btn-two">Proceed to Checkout<i
-                                    class="flaticon-right-1"></i></a>
+                            <!-- Form untuk checkout -->
+                            <form action="{{ route('checkout') }}" method="post">
+                                @csrf
+                                @foreach ($cart as $ca)
+                                <input type="hidden" name="items[{{ $loop->index }}][nama]" value="{{ $ca->nama }}">
+                                <input type="hidden" name="items[{{ $loop->index }}][kategori]" value="{{ $ca->kategori }}">
+                                <input type="hidden" name="items[{{ $loop->index }}][image]" value="{{ $ca->image }}">
+                                <input type="hidden" name="items[{{ $loop->index }}][harga]" value="{{ $ca->harga }}">
+                                <input type="hidden" name="items[{{ $loop->index }}][qty]" value="{{ $ca->qty }}">
+                                @endforeach
+                                <button type="submit" class="theme-btn-two">Checkout<i class="flaticon-right-1"></i></button>
+                            </form>
+                            
                         </div>
                     </div>
                 </div>
             </div>
+
 
         </div>
     </section>
