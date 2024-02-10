@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('kategori');;
             $table->string('image')->default('default.jpg');
             $table->integer('harga');
+            $table->integer('qty')->default(1);
             $table->timestamps();
         });
     }

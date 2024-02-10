@@ -1,5 +1,14 @@
 @extends('home.index')
 @section('content')
+<!-- Preloader -->
+<div class="loader-wrap">
+    <div class="preloader">
+        <div class="preloader-close">Preloader Close</div>
+    </div>
+    <div class="layer layer-one"><span class="overlay"></span></div>
+    <div class="layer layer-two"><span class="overlay"></span></div>
+    <div class="layer layer-three"><span class="overlay"></span></div>
+</div>
     <!-- topcategory-section -->
     <section class="topcategory-section centred">
         <div class="auto-container">
@@ -35,32 +44,33 @@
 
                 <div class="row">
                     @foreach ($fashion as $fash)
-<div class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals">
-    <div class="shop-block-one">
-        <div class="inner-box">
-            <figure class="image-box">
-                <img src="home/assets/images/resource/shop/shop-8.jpg" alt="">
-                <ul class="info-list clearfix">
-                    <li>
-                        <form action="/add-to-cart" method="post">
-                            @csrf
-                            <input type="hidden" name="nama" value="{{ $fash->nama }}">
-                            <input type="hidden" name="kategori" value="{{ $fash->kategori }}">
-                            <input type="hidden" name="harga" value="{{ $fash->harga }}">
-                            <button type="submit"><i class="flaticon-cart"></i></button>
-                        </form>
-                    </li>
-                </ul>
-            </figure>
-            <div class="lower-content">
-                <a href="product-details.html">{{ $fash->nama }}</a>
-                <a href="product-details.html">{{ $fash->kategori }}</a>
-                <span class="price">{{ $fash->harga }}</span>
-            </div>
-        </div>
-    </div>
-</div>
-@endforeach
+                        <div
+                            class="col-lg-3 col-md-6 col-sm-12 shop-block masonry-item small-column best_seller new_arraivals">
+                            <div class="shop-block-one">
+                                <div class="inner-box">
+                                    <figure class="image-box">
+                                        <img src="home/assets/images/resource/shop/shop-8.jpg" alt="">
+                                        <ul class="info-list clearfix">
+                                            <li>
+                                                <form action="/add-to-cart" method="post">
+                                                    @csrf
+                                                    <input type="hidden" name="nama" value="{{ $fash->nama }}">
+                                                    <input type="hidden" name="kategori" value="{{ $fash->kategori }}">
+                                                    <input type="hidden" name="harga" value="{{ $fash->harga }}">
+                                                    <button type="submit"><i class="flaticon-cart"></i></button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </figure>
+                                    <div class="lower-content">
+                                        <a href="product-details.html">{{ $fash->nama }}</a>
+                                        <a href="product-details.html">{{ $fash->kategori }}</a>
+                                        <span class="price">{{ $fash->harga }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
 
 
                 </div>

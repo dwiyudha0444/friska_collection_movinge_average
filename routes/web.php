@@ -42,7 +42,11 @@ Route::post('/register-proses', [RegisterController::class, 'register_proses'])-
 //home
 
 Route::get('/landingpage', [HomeController::class, 'index'])->name('landingpage');
+
+//cart
+Route::get('/cart', [CartController::class, 'index'])->name('cart');
 Route::post('/add-to-cart', [CartController::class, 'addToCart'])->name('add-to-cart');
+Route::post('/hapus-item', [CartController::class, 'hapusItem'])->name('hapus.item');
 
 //admin
 

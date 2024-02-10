@@ -29,7 +29,7 @@
                             <nav class="main-menu navbar-expand-md navbar-light">
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
-                                        <li class="current"><a href="index.html">Home</a>
+                                        <li class="current"><a href="{{ route('landingpage') }}">Home</a>
                                             
                                         </li>
                                         {{-- <li class="dropdown"><a href="index.html">Pages</a>
@@ -68,7 +68,7 @@
                             </li>
                             <li><a href="index.html"><i class="flaticon-user"></i></a></li>
                             <li class="shop-cart">
-                                <a href="shop.html"><i class="flaticon-shopping-cart-1"></i><span>3</span></a>
+                                <a href="{{ route('cart') }}"><i class="flaticon-shopping-cart-1"></i><span>3</span></a>
                             </li>
                         </ul>
                     </div>
@@ -80,7 +80,7 @@
                 <div class="auto-container">
                     <div class="outer-box clearfix">
                         <div class="logo-box pull-left">
-                            <figure class="logo"><a href="index.html"><img src="assets/images/small-logo.png"
+                            <figure class="logo"><a href="index.html"><img src="home/assets/images/small-logo.png"
                                         alt=""></a></figure>
                         </div>
                         <div class="menu-area pull-right">
