@@ -55,6 +55,8 @@ Route::post('/checkout', [TransaksiController::class, 'checkout'])->name('checko
 
 //admin
 
+
+
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::resource('/administrator',AdminController::class);
 
@@ -63,6 +65,8 @@ Route::get('/stok-fashion', [ProductController::class, 'index_fashion'])->name('
 
 //stok produks - prabotan
 Route::get('/stok-prabotan', [ProductController::class, 'index_prabotan'])->name('stok-prabotan');
+
+Route::post('/prediski', [TransaksiController::class, 'totalQTY'])->name('prediksi');
 
 //user
 Route::get('/user', [UserController::class, 'index'])->name('user');
